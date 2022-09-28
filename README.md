@@ -6,7 +6,7 @@ There are multiple ways of doing this from kubectl commands through to building 
 
 For the purpose of this tutorial we will use the cli (kubectl) as it offers the best way of showing what is happening.
 
-#Prerequisites: Have up to date versions of Docker and Minikube running
+## Prerequisites: Have up to date versions of Docker and Minikube running
 
 
 ```
@@ -31,7 +31,7 @@ Now check the deployments status
 ```
 kubectl get pods
 ```
-You should jsut have 1 pod running at this stage.
+You should just have 1 pod running at this stage.
 
 ```
 get events
@@ -67,7 +67,7 @@ kubectl get pod,svc -n kube-system
 ```
 View the pod and service you created
 
-# Scaling the cluster
+## Scaling the cluster
 
 ```
 kubectl get deployments
@@ -100,7 +100,7 @@ kubectl describe deployments/hello-node
 Confirm you have 4 replicas now
 
 
-# Setting up the loadbalancer
+## Setting up the loadbalancer
 
 ```
 kubectl describe services/hello-node
@@ -114,7 +114,7 @@ export NODE_PORT=$(kubectl get services/hello-node -o go-template='{{(index .spe
 echo NODE_PORT=$NODE_PORT
 ```
 Create an env variable called NODE_PORT
-# Testing the loadbalancer
+## Testing the loadbalancer
 
 Each pod has a different ip address and so if you curl the node port a number of times you will see different ip addresses in the response thus proving that the loadbalancing is working
 ```
@@ -122,4 +122,4 @@ curl $(minikube ip):$NODE_PORT
 ```
 
 
-# Thank you for taking your time to complete this tutorial
+## Thank you for taking your time to complete this tutorial
